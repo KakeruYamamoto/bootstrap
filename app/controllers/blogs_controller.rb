@@ -26,8 +26,8 @@ class BlogsController < ApplicationController
         redirect_to blogs_path, notice:"ブログを作成しました！" #noticeはHTMLに記述しないと表示されない。
       else
         #falseだとnewページに遷移。
-        render :new #renderは指定したviewをレンダリングをする。
-
+        #render :new     #renderは指定したviewをレンダリングをする。
+        render 'new'
         #通常だと指定したURLに移動すると
         #その関連したアクションやhtmlが呼び出されるがcreateはブログ作成の機能としての意図があるので
         #HTMLがないゆえにエラーが起るのでrenderでnew（新規作成画面）に返す。
@@ -35,17 +35,22 @@ class BlogsController < ApplicationController
     end
   end
 
-  def show
+  def show #詳細
     #共通処理化
   end
 
-  def edit
+  def edit #編集
     #共通処理化
   end
 
   def destroy
     @blog.destroy
     redirect_to blogs_path, notice:"ブログを削除しました!"
+  end
+
+  def confirm  #確認ダイアログ
+    @blog = Blog.new(blog_params)
+    render :new if @blog.invalid?
   end
 
   def update  #before_actionを通してset_bolgメソで@blog = Blog.find(params[:id])を定義。これで共通処理ができる。重複部分は削除。
