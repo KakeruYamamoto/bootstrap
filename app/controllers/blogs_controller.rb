@@ -34,7 +34,7 @@ class BlogsController < ApplicationController
 
   def destroy
     @blog.destroy
-    redirect_to blogs_path, notice:"ブログを削除しました。"
+    redirect_to blogs_path, notice:"ブログを削除しました!"
   end
 
   def update  #before_actionを通してset_bolgメソで@blog = Blog.find(params[:id])を定義。これで共通処理ができる。重複部分は削除。
