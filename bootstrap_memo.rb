@@ -21,6 +21,12 @@ bootstrapとはcssフレームワークの事
 
 rails newから　jqueryインストまで
 
+
+マニフェストファイルとはjsだと
+app/assets/javascript/application.js
+
+
+
   515  rails _5.2.3_ new bootstrap -d postgresql
   516  cd bootstrap/
   517  rails db:create

@@ -10,9 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs        //  requireでファイルを読み込む
+//= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require jquery/dist/jquery.js     //追加
-//= require bootstrap/dist/js/bootstrap.min  //追加
-// = require_tree .       //   app/assets/javascript配下のjsファイルを全て読み込むという意味。
+//= require jquery/dist/jquery.js
+//= require bootstrap/dist/js/bootstrap.min
+//= require_tree .    

@@ -4,7 +4,7 @@
     <title>Bootstrap</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width">  <!-- head内にこのmetaを追記すると他の各デバイスにサイズを合わせて表示される -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
