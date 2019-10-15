@@ -11,16 +11,27 @@ class BlogsController < ApplicationController
   end
 
   def create
-    if @blog.save #ブログの保存が成功した場合に
-      #一覧画面（indexのprefixがblogs）へ遷移して下記のメッセージを表示。
-      redirect_to blogs_path, notice:"ブログを作成しました！" #noticeは表示したいHTMLに記述されないと表示されない。今の段階ではされない。
-    else
-      #falseだとnewページに遷移。
-      render :new #renderは指定したviewをレンダリングをする。
+    #Blog.create(title: params[:blog][:title], content: params[:blog][:content])
+    #Blog.create(params.require(:blog).permit(:title,:content))#この書き方をstorong parametersという。blogのtitleとcontentをハッシュ値に変換
+    #Blog.create(blog_params)#下記のメソッドを指定.同じクラス内だと変数でなくても使用可能。
+    #redirect_to new_blog_path
+    @blog = Blog.new(blog_params)
 
-      #通常だと指定したURLに移動すると
-      #その関連したアクションやhtmlが呼び出されるがcreateはブログ作成の機能としての意図があるので
-      #HTMLがないゆえにエラーが起るのでrenderでnew（新規作成画面）に返す。つまり、変わらない。
+    if params[:back]
+        render :new
+      else
+
+      if @blog.save #ブログの保存が成功した場合に
+        #一覧画面（indexのprefixがblogs）へ遷移して下記のメッセージを表示。
+        redirect_to blogs_path, notice:"ブログを作成しました！" #noticeはHTMLに記述しないと表示されない。
+      else
+        #falseだとnewページに遷移。
+        render :new #renderは指定したviewをレンダリングをする。
+
+        #通常だと指定したURLに移動すると
+        #その関連したアクションやhtmlが呼び出されるがcreateはブログ作成の機能としての意図があるので
+        #HTMLがないゆえにエラーが起るのでrenderでnew（新規作成画面）に返す。
+      end
     end
   end
 
