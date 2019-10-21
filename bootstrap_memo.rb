@@ -10,11 +10,11 @@ prefix   xs   sm    md    lg
 
 bootstrapの基本---------------------------
 
-container(固定枠)、 conntainer-fluid(流動枠)
+container(固定枠)、 -fluid(流動枠)
 
-row  (行)   rowクラスがつけられた親要素の中で12分割される
+row  (行)   rowクラスがつけられた親要素の中で12分割される、それをcolでどのカラム分なのかを考える
 
-col-'prefix'-'数字' (カラム)
+col-'prefix'-'数字' (カラム)  数字は12まで
 
 -------------------------------------
 
